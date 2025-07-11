@@ -1,0 +1,43 @@
+
+<div class="flex items-center justify-center min-h-screen">
+  <form class="min-w-[150px] max-w-[500px] w-full bg-white p-6 rounded-xl shadow-md" (ngSubmit)="onSubmit()" #noteForm="ngForm">
+    <mat-form-field class="w-full">
+      <mat-label>Titulo</mat-label>
+      <input matInput 
+        placeholder="Ej. Reunión con el cliente" 
+        name="title"
+        required
+        [(ngModel)]="model.title" 
+        [errorStateMatcher]="matcher"
+        #title="ngModel"
+      >
+
+      @if ( formUtils.isValidField( title ) ) {
+        <mat-error> {{ formUtils.getFieldError(title) }} </mat-error>
+      }
+      
+    </mat-form-field>
+
+    <mat-form-field class="w-full mt-2">
+      <mat-label>Descripcion</mat-label>
+      <textarea matInput 
+        placeholder="Ej. Descripción de la actividad realizada..." 
+        name="description"
+        required
+        minlength="5"
+        [(ngModel)]="model.description"
+        [errorStateMatcher]="matcher"
+        #description="ngModel"
+        >
+      </textarea>
+
+      @if ( formUtils.isValidField( description ) ) {
+      <mat-error> {{ formUtils.getFieldError(description) }} </mat-error>
+      }
+    </mat-form-field>
+
+    <div class="flex justify-end">
+      <button matButton="filled" [disabled]="formUtils.isValidForm(noteForm)">Guardar</button>
+    </div>
+  </form>
+</div>
