@@ -1,15 +1,15 @@
-import { AfterContentInit, AfterViewInit, Component, inject, OnInit, signal, ViewChild } from '@angular/core';  
+import { Component, inject, OnInit, signal } from '@angular/core';  
 import { toSignal } from '@angular/core/rxjs-interop';
 import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-MatFormFieldModule';
 import {MatButtonModule} from '@angular/material/button';
-import { FormControl, FormGroupDirective, FormsModule, NgForm } from '@angular/forms';
-import { FormUtils } from '../../../utils/form-utils';
-import { Note } from '../../models/note';
-import { NotesService } from '../../../shared/services/notes.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { FormControl, FormGroupDirective, FormsModule, NgForm } from '@angular/forms';
 import { map } from 'rxjs';
-import { v4 as uuid } from 'uuid';
+
+import { Note } from '../../../shared/models/note';
+import { FormUtils } from '../../../utils/form-utils';
+import { NotesService } from '../../../shared/services/notes.service';
 
 export class MyErrorStateMatcher implements MyErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
