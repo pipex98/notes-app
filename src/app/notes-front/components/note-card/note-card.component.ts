@@ -1,7 +1,8 @@
 import { Component, inject, input } from '@angular/core';
-import { Note } from '../../../add-note/models/note';
+
 import { NotesService } from '../../../shared/services/notes.service';
 import { RouterModule } from '@angular/router';
+import { Note } from '../../../shared/models/note';
 
 @Component({
   selector: 'app-note-card',

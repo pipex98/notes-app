@@ -1,5 +1,6 @@
 import { effect, Injectable, signal } from '@angular/core';
-import { Note } from '../../add-note/models/note';
+import { Note } from '../models/note';
+
 
 const loadFromLocalStorage = (): Note[] => {
   const notes = localStorage.getItem('notes');

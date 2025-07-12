@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, signal } from '@angular/core';  
 import { toSignal } from '@angular/core/rxjs-interop';
 import {MatInputModule} from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-MatFormFieldModule';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { FormControl, FormGroupDirective, FormsModule, NgForm } from '@angular/forms';
@@ -57,7 +57,7 @@ export class AddNotePageComponent implements OnInit {
 
     if (!this.model.title && !this.model.description) {
       return
-    }
+    }    
 
     if (!this.noteId() || !this.noteService.getNoteById(this.noteId())) {
       this.noteService.addNote(this.model);
@@ -65,6 +65,7 @@ export class AddNotePageComponent implements OnInit {
       this.noteService.updateNote(this.model, this.noteId());
     }
     
+    this.router.navigate(['']);
 
   }
 
